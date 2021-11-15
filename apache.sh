@@ -23,13 +23,22 @@ echo "To verify your apache server goto your IP with browser."
 
 
 
-echo "nodejs Installing..."
-sudo apt install nodejs -y
-echo "nodejs Install Completed"
-echo "$(node -v)"
-echo "npm Installing..."
-sudo apt install npm
-echo "$(npm -v)"
+while true; do
+    read -p "Do you want to install NodeJs?" yn
+    case $yn in
+        [Yy]* )
+	echo "nodejs Installing..."
+	sudo apt install nodejs -y
+	echo "nodejs Install Completed"
+	echo "$(node -v)"
+	echo "npm Installing..."
+	sudo apt install npm
+	echo "$(npm -v)"
+	break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 
 
